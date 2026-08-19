@@ -17,12 +17,8 @@ Dopile Linux is a modern, enterprise-grade, self-hosted Task Manager application
   * **Double-Submit CSRF Protection**: Mandatory `X-CSRF-Token` header verification for state-changing requests.
   * **Sliding-Window Rate Limiting**: In-memory rate limiting against brute-force login attempts.
   * **Strict RBAC & IDOR Prevention**: Robust role-based access control and user isolation.
-* **🌐 Per-Account Wi-Fi IP-Binding Security**:
-  * **Standard Users (`USER`)**: Automatically bound to their Wi-Fi / LAN IP address upon first login or registration. Attempts to log in from an unauthorized IP are blocked with HTTP 403.
-  * **Admin Exemption (`ADMIN`)**: Admin accounts bypass IP binding restrictions and can log in from any IP address.
-  * **Admin Management**: Admins can view, assign, or reset bound IP addresses in the Admin Panel.
 * **👑 Full Admin Oversight Suite**:
-  * **User Management**: Create, deactivate, update roles, reset passwords, delete accounts, and manage bound IP addresses.
+  * **User Management**: Create, deactivate, update roles, reset passwords, and delete accounts.
   * **Task Oversight & Reassignment**: Reassign and edit tasks across all users.
   * **Audit Logging**: Comprehensive, immutable security audit trail.
   * **Live System Telemetry**: Server uptime, DB health metrics, and active WebSocket connection counters.
