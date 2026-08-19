@@ -1,0 +1,20 @@
+[Unit]
+Description=Dopile Linux - Secure LAN Task Manager Server
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/dopile-linux
+ExecStart=/opt/dopile-linux/start.sh
+Restart=always
+RestartSec=5
+Environment=NODE_ENV=production
+
+# Security Hardening
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=false
+
+[Install]
+WantedBy=multi-user.target

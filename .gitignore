@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+*.egg-info/
+.pytest_cache/
+.coverage
+
+# Data & Database
+data/
+*/data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+backups/
+*/backups/
+
+# Secrets & Environment
+.env
+
+# Logs
+logs/
+*.log
+
+# Node & Frontend
+node_modules/
+frontend/.vite/
+frontend/.cache/
+frontend/dist-ssr/
+*.tsbuildinfo
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
