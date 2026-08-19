@@ -14,7 +14,24 @@ if command -v termux-wake-lock >/dev/null 2>&1; then
     termux-wake-lock || true
 fi
 
-# Virtualenv check
+# Detect system Python binary (python3 vs python)
+PYTHON_CMD="python3"
+if command -v python3 >/dev/null 2>&1; then
+    PYTHON_CMD="python3"
+elif command -v python >/dev/null 2>&1; then
+    PYTHON_CMD="python"
+fi
+
+# Auto-create virtual environment if missing
+if [ ! -d ".venv" ] && [ ! -d "venv" ]; then
+    echo "[*] Creating virtual environment (.venv)..."
+    $PYTHON_CMD -m venv .venv
+    source .venv/bin/activate
+    echo "[*] Installing Python dependencies..."
+    pip install -r backend/requirements.txt
+fi
+
+# Virtualenv activation check
 if [ -d ".venv" ]; then
     source .venv/bin/activate
 elif [ -d "venv" ]; then
@@ -24,7 +41,7 @@ fi
 # Ensure .env exists
 if [ ! -f ".env" ]; then
     echo "[!] .env not found. Initializing..."
-    python -m app.cli init
+    PYTHONPATH=backend python -m app.cli init
 fi
 
 # Export .env variables
