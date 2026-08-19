@@ -75,7 +75,7 @@ cd Dopile-linux
 Initialize your primary administrator account:
 
 ```bash
-PYTHONPATH=backend python3 -m app.cli create-admin
+PYTHONPATH=backend .venv/bin/python -m app.cli create-admin
 ```
 
 ---
